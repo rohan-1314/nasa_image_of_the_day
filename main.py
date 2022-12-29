@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
-
-url = 'https://api.nasa.gov/planetary/apod?api_key=nX9tXeixyyxtyz6UYsa4WZjl5hvS6TGyhnuB0BLA'
+import os
+key = os.getenv('nasa api key')
+url = f'https://api.nasa.gov/planetary/apod?api_key={key}'
 request = requests.get(url)
 data = request.json()
 title = data['title']
